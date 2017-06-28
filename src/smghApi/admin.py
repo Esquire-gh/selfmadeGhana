@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Article, Comment, Discussion, Suggestion
 
-# Register your models here.
+admin.site.register(Article)
+admin.site.register(Comment)
+admin.site.register(Discussion)
+admin.site.register(Suggestion)
