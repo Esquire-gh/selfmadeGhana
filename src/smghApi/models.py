@@ -13,7 +13,7 @@ class Article(models.Model):
 	content = models.TextField()
 	category = models.CharField(choices=tags, max_length=40)
 	data_created = models.DateField(auto_now_add = True)
-	image = models.FileField(upload_to='media/')
+	image = models.ImageField(upload_to='media/')
 	views = models.PositiveIntegerField(blank=True, default=0)
 	shares = models.PositiveIntegerField(blank=True, default=0)
 
