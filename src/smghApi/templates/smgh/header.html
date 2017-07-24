@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{% block title %} {% endblock %}</title>
+
+		{% load staticfiles %}
+		
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" type="text/css" href="{% static 'smgh/css/bootstrap.min.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'smgh/css/bootstrap-theme.min.css' %}">
+
+		<!-- other css files -->
+		<link rel="stylesheet" type="text/css" href="{% static 'smgh/css/flat-ui.min.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'smgh/css/font-awesome.min.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'smgh/css/main.css' %}">
+		{% block extralinks %}
+		{% endblock %}
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="container-fluid" class="row" style="position: relative;">
+		<div id="navigation" class="row">
+			<nav class="navbar navbar-default navbar-fixed-top row" role="navigation">
+				<div class="container-fluid " id="nav-inner">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="{% url 'smgh:index' %}" style="color: rgb(232, 49, 49)">SelfMadeGhana</a>
+					</div>
+			
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse navbar-ex1-collapse">
+						<ul class="nav navbar-nav">
+							<li><a href="#">Articles</a></li>
+							<li><a href="#">Discussions</a></li>
+							<li><a href="#">Categories</a></li>
+							<li><a href="#">More</a></li>
+						</ul>
+						<form class="navbar-form navbar-right" role="search">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
+							</div>
+							<a type="submit" class="btn btn-default"><span><i style="color: rgb(232, 49, 49);" class="fa fa-search fa-2x"></i></span></a>
+						</form>
+					</div><!-- /.navbar-collapse -->
+				</div>
+			</nav>
+		</div>
+
+		{% block content %}
+
+		{% endblock %}
+
+		<div id="footer" class="row">
+			<div id="newsletter" class="row">
+				<h3 class="text-center">A Newsletter You will Actually Read</h3>
+				<h6 class="text-center">Receive new articles as they are published</h6>
+				
+				<div class="row" style="padding: 0 2%">
+					<div class="col-md-offset-3  col-md-6">
+						<form>
+							<div class="form-group">
+								<input id="newsletter-form-text" type="text" name="subscribe" class="form-control" placeholder="Enter your E-mail">
+								<p class="text-center"><input type="submit" name="submit" class="btn btn-subscribe"></p>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-offset-1 col-md-10" style="border-top: 3px dotted #888;">
+					<div class="row" style="padding: 10px 0;">
+						<div class="col-md-6">
+							<div class="row text-center">
+								Quick Links:
+								<div id="quicklinks">
+									<a href="{% url 'smgh:index' %}">Home</a>
+									<a href="">Articles</a>
+									<a href="">Discussions</a>
+									<a href="{% url 'smgh:about' %}">About</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 text-center">
+							Follow SelfMadeGhana On:
+							<div>
+								<a href=""><span><i class="fa fa-facebook fa-2x"></i></span></a>
+								<a href=""><span><i class="fa fa-instagram fa-2x"></i></span></a>
+								<a href=""><span><i class="fa fa-twitter fa-2x"></i></span></a>
+								<a href=""><span><i class="fa fa-linkedin fa-2x"></i></span></a>
+								
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+			<div class="row text-center" style="color: gray; border-top: 1px solid white;">
+				<span class="text-center">Copyright&copy;SelfMadeGhana, 2017</span>
+			</div>
+		</div>
+	</div>
+
+		<!-- jQuery -->
+		<script src="//code.jquery.com/jquery.js"></script>
+		<!-- Bootstrap JavaScript -->
+		<script type="text/javascript" src = "{% static 'smgh/js/bootstrap.min.js' %}"></script>
+		<!-- other js files -->
+ 		<script type="text/javascript" src="{% static 'smgh/js/flat-ui.min.js' %}"></script>
+ 		<script type="text/javascript" src="{% static 'smgh/js/script.js' %}"></script>
+ 		{% block extrascripts %}
+		{% endblock %}
+	</body>
+</html>

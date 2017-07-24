@@ -1,0 +1,47 @@
+{% extends 'smgh/header.html' %}
+{% load staticfiles %}
+
+{% block title%} SelfMadeGhana {% endblock %}
+
+{% block content %}
+	
+		<div id="main-content" class="row">
+			<!-- Top Stories -->
+			<div id="top-articles" class="row">
+			 	<div class="col-md-6">
+			 		<div class="row top-story">
+			 			<img src="{% static 'smgh/images/addo.jpg' %}" class="img-responsive">
+			 			<span class="top-story-title"><a href="">Reasons why Akufffo-Addo cannot save us</a></span>
+			 		</div>
+			 	</div>
+			 	<div class="col-md-6">
+			 		<div class="row top-story">
+			 			<img src="{% static 'smgh/images/unemployed.jpg' %}" class="img-responsive">
+			 			<span class="top-story-title"><a href="">You are unemployed because you lack skill</a></span>
+			 		</div>
+			 	</div>
+			</div>
+			
+			<!-- Sub Stories -->
+			<div class="row" id="substories-div">
+				<div class="col-md-7" id="other-articles">
+					{% for article in articles %}
+					<div class="article-box row">
+						<div class="col-md-3 img-resposive">
+							<img src="{{ article.image.url }}" class="article-image img-responsive">
+						</div>
+						<div class="col-md-9">
+							<span style="background: rgb(232, 49, 49); color: white; padding: 0 3px;">{{ article.category }}</span>
+							<h5><a href="{% url 'smgh:post_detail' pk=article.pk %}" class="article-title">{{ article.title }}</a></h5>
+							<span style="font-size: 15px;">Author: Esquire_gh</span>
+						</div>
+					</div>	
+					{% endfor %}
+				</div>
+				<div class="col-md-5" id="advertisement">
+					
+				</div>
+			</div>
+		</div>
+
+{% endblock %}

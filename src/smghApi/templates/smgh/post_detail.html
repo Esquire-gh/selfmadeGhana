@@ -1,0 +1,37 @@
+{% extends 'smgh/header.html' %}
+{% load staticfiles %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block extralinks %}
+	<link rel="stylesheet" type="text/css" href="{% static 'smgh/css/post-detail.css'%}">
+{% endblock %}
+
+{% block content %}
+	<div class="row" style="margin-top: 100px;">
+		 <div class="col-md-offset-3 col-md-6">
+		 	<div>
+		 		<span style="background: rgb(232, 49, 49); color: white; padding: 0 3px;">Category : {{ article.category }}</span>
+		 		<span>/ July 4, 2017</span><br>
+		 		<span>Content By: SelfMadeGhana Content Team</span>
+		 	</div>
+		 	<h3 style="margin-top: 0;">{{article.title}}</h3>
+		 	
+		 	<div class="img-responsive row" style="padding-left: 2%;">
+		 		<img src="{{ article.image.url }}" class="img-responsive" style="max-height: 500px;" align="center">
+		 	</div>
+		 	
+		 	<div class="row">
+		 		<p>{{ article.content|safe }}</p>
+		 	</div>
+
+		 	<div id="other-articles" class="row">
+		 		<header style="color: gray;">People who read this also read: </header>
+		 	</div>
+
+		 	<div id="comments" class="row">
+		 		<header style="color: gray;">Comments: </header>
+		 	</div>
+		 </div>
+	</div>
+{% endblock %}

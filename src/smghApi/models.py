@@ -8,22 +8,16 @@ tags = (
 	('Religion', 'Religion')
 	)
 
-class Author(models.Model):
-	first_name = models.CharField(max_length=50)
-	last_name = models.CharField(max_length=50)
-
-	def __str__(self):
-		return (self.first_name + " " + self.last_name)
 
 class Article(models.Model):
 	title = models.CharField(max_length = 300)
-	athor = models.ForeignKey(Author, blank = True, null=True)
 	content = models.TextField()
 	category = models.CharField(choices=tags, max_length=40)
 	data_created = models.DateField(auto_now_add = True)
-	image = models.ImageField(upload_to='media/')
+	image = models.ImageField(upload_to='media')
 	views = models.PositiveIntegerField(blank=True, default=0)
 	shares = models.PositiveIntegerField(blank=True, default=0)
+	likes = models.PositiveIntegerField(blank=True, default=0)
 
 	def __str__(self):
 		return self.title
@@ -47,3 +41,6 @@ class Suggestion(models.Model):
 	message = models.TextField()
 	sender = models.CharField(max_length=100, blank = True, null = True)
 	discussion = models.ForeignKey(Discussion, null=False)
+
+class Subscriber(models.Model):
+	email = models.EmailField(max_length=255, blank=False, null=False)
