@@ -1,50 +1,31 @@
 {% extends 'smgh/header.html' %}
 {% load staticfiles %}
 
-{% block title%} SelfMadeGhana {% endblock %}
+{% block title %}Contact Us{% endblock %}
+
+{% block extralinks %}
+	<link rel="stylesheet" type="text/css" href="{% static 'smgh/css/about.css'%}">
+{% endblock %}
 
 {% block content %}
-	
-		<div id="main-content" class="row">
-			<!-- Top Stories -->
-			<div id="top-articles" class="row">
-			 	<div class="col-md-6">
-			 		<div class="row top-story">
-			 			<img src="{% static 'smgh/images/addo.jpg' %}" class="img-responsive">
-			 			<span class="top-story-title"><a href="">Reasons why Akufffo-Addo cannot save us</a></span>
-			 		</div>
-			 	</div>
-			 	<div class="col-md-6">
-			 		<div class="row top-story">
-			 			<img src="{% static 'smgh/images/unemployed.jpg' %}" class="img-responsive">
-			 			<span class="top-story-title"><a href="">You are unemployed because you lack skill</a></span>
-			 		</div>
-			 	</div>
-			</div>
-			
-			<!-- Sub Stories -->
-			<div class="row" id="substories-div">
-				<div class="col-md-7" id="other-articles">
-					{% for article in articles %}
-					<div class="article-box row">
-						<div class="col-md-3 img-resposive">
-							<img src="{{ article.image.url }}" class="article-image img-responsive">
-						</div>
-						<div class="col-md-9">
-							<span style="background: rgb(232, 49, 49); color: white; padding: 0 3px;">{{ article.category }}</span>
-							<h5><a href="{% url 'smgh:post_detail' slug=article.slug %}" class="article-title">{{ article.title }}</a></h5>
-							<span style="font-size: 15px;">Author: Esquire_gh</span>
-						</div>
-					</div>	
-					{% endfor %}
-				</div>
-				<div class="col-md-5" id="advertisement">
-					
-				</div>
+	<div class="row">
+		<div class="row" id="contact-page-header">
+			<h1 style="text-align: center; margin-top: 80px; color: white;">Send Us a Message:</h1>
+		</div>
+		<div id="contact-details" class="row">
+			<div class="col-md-offset-3 col-md-6">
+				<form method="POST" id="contact-form">
+					{% csrf_token %}
+
+					{{ contact_form }}
+					<input type="submit" name="submit" value="Send Message" class="btn btn-lg contact-form-submit">
+				</form>
 			</div>
 		</div>
+	</div>
 
-		<div id="footer" class="row">
+
+	<div id="footer" class="row">
 			<div id="newsletter" class="row">
 				<h3 class="text-center">A Newsletter You will Actually Read</h3>
 				<h6 class="text-center">Receive new articles as they are published</h6>
@@ -92,5 +73,4 @@
 				<span class="text-center">Copyright&copy;SelfMadeGhana, 2017</span>
 			</div>
 		</div>
-
 {% endblock %}

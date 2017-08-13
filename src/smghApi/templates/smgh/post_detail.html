@@ -25,13 +25,61 @@
 		 		<p>{{ article.content|safe }}</p>
 		 	</div>
 
-		 	<div id="other-articles" class="row">
-		 		<header style="color: gray;">People who read this also read: </header>
+		 	<div class="row" id="like-share-buttons">
+		 		<div>
+		 			<p>
+		 				<i>
+		 					If you liked this piece, please like and share on social media, Thank you!
+		 				</i>
+		 			</p>
+		 		</div>
+		 		<center>
+		 			<div>
+						<a href="" style="margin-right: 30px;"><i class="fa fa-heart fa-2x"></i> 22 Likes</a>
+						<span>Share On:</span>
+						<a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000" target="_blank"><i class="fa fa-facebook fa-2x fa-detail fa-fb"></i></a>
+						
+						<a href="https://twitter.com/home?status={{ share_string }}%20{{ request.build_absolute_uri }}" target="_blank"><i class="fa fa-twitter fa-2x fa-detail fa-tt"></i></a>	
+						
+						<a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ article.title }}&summary={{ share_string }}&source={{ request.build_absolute_uri }}" target="_blank"><i class="fa fa-linkedin fa-2x fa-detail fa-ld"></i></a>	 			
+		 			</div>
+		 		</center>
 		 	</div>
-
+	
 		 	<div id="comments" class="row">
-		 		<header style="color: gray;">Comments: </header>
+		 		<div class="panel">
+		 			<div class="panel-heading">
+		 				<h3 class="panel-title"> {{ comment_count }} Comments: </h3>
+		 			</div>
+		 			<div class="panel-body">
+
+			 			<div class="row" style="margin: 5px; border: 1px solid lightgray; border-radius: 20px; padding: 20px;">
+			 				<form method="POST">
+			 					{% csrf_token %}
+
+			 					
+			 					<div class="form-group">
+			 						{{ commentForm }}
+			 						<input type="submit" name="submit" value="Publish" class="btn-submit btn-lg">
+			 					</div>
+			 				</form>
+			 			</div>
+
+			 			{% for comment in article_comments %}
+			 			<div class="panel panel-default">
+			 				<div class="panel-heading"></div>
+			 				<div class="panel-body">
+			 					{{ comment.message }}
+			 				</div>
+			 			</div>
+			 			{% endfor %}
+		 			</div>
+		 		</div>
 		 	</div>
 		 </div>
+	</div>
+
+	<div class="row text-center" style="color: gray; border-top: 1px solid white; background-color: rgb(232, 49, 49);">
+				<span class="text-center">Copyright&copy;SelfMadeGhana, 2017</span>
 	</div>
 {% endblock %}

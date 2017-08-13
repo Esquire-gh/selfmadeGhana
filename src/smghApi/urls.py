@@ -7,8 +7,9 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index, name="index"),
     url(r'^index.html', views.index, name="index"),
-    url(r'^about.html', views.about, name="about"),
-    url(r'^articles/(?P<pk>\d+)/$', views.post_detail, name = 'post_detail'),
+    url(r'^about.html', views.about_view, name="about"),
+    url(r'^contact.html', views.contact_view, name="contact"),
+    url(r'^articles/(?P<slug>[\w-]+)/$', views.post_detail, name = 'post_detail'),
 ]
 
 if settings.DEBUG:

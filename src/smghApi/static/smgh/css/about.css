@@ -1,0 +1,51 @@
+{% load staticfiles %}
+
+#image-header{
+	background-image: url('/static/smgh/images/circle.jpg');
+	position: relative;
+	top: 70px;
+	height: 200px;
+}
+
+#about-story{
+	position: relative;
+	top: 70px;
+	margin-bottom: 70px;
+}
+
+
+#contact-page-header{
+	background-image: url('/static/smgh/images/bridge.jpg');
+	position: relative;
+	top: 70px;
+	height: 250px;
+}
+
+#contact-details{
+	position: relative;
+	top: 80px;
+	margin-bottom: 80px;
+}
+
+.contact-form-submit{
+	margin-top: 15px;
+	background-color: rgb(232, 49, 49);
+}
+
+#contact-form{
+	border: 1px solid lightgray;
+	padding: 15px;
+	border-radius: 20px;
+	position: relative;
+	top: -80px;
+	background-color: white;
+	box-shadow: 4px 4px -3px 4px gray;
+}
+
+.contact_form_element{
+	border: 0px;
+	border-bottom: 1px solid gray;
+	box-shadow: 0px 2px 1px -2px gray;
+	margin-top: 10px;
+	border-radius: 0px;
+}

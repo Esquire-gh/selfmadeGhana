@@ -133,3 +133,12 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_development')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media_development')
+
+
+#email backend for local server. In development this will be set to actual smtp server ports
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
+DEFAULT_FROM_EMAIL = 'testing@example.com'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False 
+EMAIL_PORT = 1025
