@@ -14,6 +14,7 @@ tags = (
 class Article(models.Model):
 	slug = models.SlugField(unique=True, blank=True)
 	title = models.CharField(max_length = 300)
+	author = models.CharField(max_length = 300, blank=True, null=True)
 	content = models.TextField()
 	category = models.CharField(choices=tags, max_length=40)
 	data_created = models.DateField(auto_now = True, blank = False, null=False)
@@ -48,6 +49,8 @@ class Suggestion(models.Model):
 class Subscriber(models.Model):
 	email = models.EmailField(max_length=255, blank=False, null=False)
 
+	def __str__(self):
+		return self.email
 
 #function to generate slug field for better urls
 def create_slug(instance, new_slug=None):

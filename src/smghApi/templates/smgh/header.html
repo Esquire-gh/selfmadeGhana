@@ -39,13 +39,13 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="{% url 'smgh:index' %}" style="color: rgb(232, 49, 49)">SelfMadeGhana</a>
+						<a class="navbar-brand" href="{% url 'smgh:index' %}" style="color: rgb(232, 49, 49); font-family: 'Nunito'">SelfMadeGhana</a>
 					</div>
 			
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse navbar-ex1-collapse navbar-right">
 						<ul class="nav navbar-nav">
-							<li><a href="#">Trending</a></li>
+							<li><a class="navbar-item" href="#">Trending</a></li>
 							<!--
 							<li class="dropdown"><a href="#">Categories</a>
 								<ul class="dropdown-content">
@@ -57,8 +57,8 @@
 								</ul>
 							</li>
 							-->
-							<li><a href="{% url 'smgh:about' %}">About</a></li>
-							<li><a href="{% url 'smgh:contact' %}">Contatct</a></li>
+							<li><a class="navbar-item" href="{% url 'smgh:about' %}">About</a></li>
+							<li><a class="navbar-item" href="{% url 'smgh:contact' %}">Contatct</a></li>
 						</ul>
 						<!--
 						<form class="navbar-form navbar-right" role="search">

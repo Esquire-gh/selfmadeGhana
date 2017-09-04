@@ -15,22 +15,20 @@
 		<div id="about-story" class="row">
 			<div class="col-md-offset-2 col-md-8" style="text-align: justify; margin-top: 20px;">
 				<h3>Our Mission</h3>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				SelfMadeGhana is a platform that is driven by its mission to give every ghanaian youth
+				a chance at the life that they dream of. We believe that we can all be who we want to 
+				be if we understood a few principles and concepts. Our mission is to bring these 
+				concepts, principles and methodologies to every Ghanaian youth through short, precise 
+				and captivating articles that will challenge to be more than they are and to believe that 
+				they are the future.
 
 				<br><br>
 
 				<h3>What we stand for</h3>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lifelong Learning, Excellence, Self empowerment, Habit-Focused Process, Creativity and Ingenuity.
+				These are a few of the principles the we stand for. SelfMadeGhana is a symbol of these principles within
+				the Ghanaian youth are we believe that if we get these across to every single person, we will be better off 
+				both as individuals and as a country.
 			</div>
 		</div>
 	</div>
@@ -46,8 +44,8 @@
 						<form method="POST" action="/">
 							{% csrf_token %}
 							<div class="form-group">
-								<input id="newsletter-form-text" type="text" name="subscribe" class="form-control" placeholder="Enter your E-mail">
-								<p class="text-center"><input type="submit" name="submit" class="btn btn-subscribe"></p>
+								{{ subscriber_form }}
+								<p class="text-center"><input type="submit" name="submit" class="btn btn-subscribe"  value="Subscribe"></p>
 							</div>
 						</form>
 					</div>

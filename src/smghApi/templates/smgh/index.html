@@ -10,14 +10,14 @@
 			<div id="top-articles" class="row">
 			 	<div class="col-md-6">
 			 		<div class="row top-story">
-			 			<img src="{% static 'smgh/images/addo.jpg' %}" class="img-responsive">
-			 			<span class="top-story-title"><a href="">Reasons why Akufffo-Addo cannot save us</a></span>
+			 			<img src="{{ top_story_left.image.url }}" class="img-responsive">
+			 			<span class="top-story-title"><a href="{% url 'smgh:post_detail' slug=top_story_left.slug %}">{{ top_story_left.title }}</a></span>
 			 		</div>
 			 	</div>
 			 	<div class="col-md-6">
 			 		<div class="row top-story">
-			 			<img src="{% static 'smgh/images/unemployed.jpg' %}" class="img-responsive">
-			 			<span class="top-story-title"><a href="">You are unemployed because you lack skill</a></span>
+			 			<img src="{{ top_story_right.image.url }}" class="img-responsive">
+			 			<span class="top-story-title"><a href="{% url 'smgh:post_detail' slug=top_story_right.slug %}">{{ top_story_right.title }}</a></span>
 			 		</div>
 			 	</div>
 			</div>
@@ -28,12 +28,17 @@
 					{% for article in articles %}
 					<div class="article-box row">
 						<div class="col-md-3 img-resposive">
-							<img src="{{ article.image.url }}" class="article-image img-responsive">
+							<a href="{% url 'smgh:post_detail' slug=article.slug %}"><img src="{{ article.image.url }}" class="article-image img-responsive"></a>
 						</div>
 						<div class="col-md-9">
 							<span style="background: rgb(232, 49, 49); color: white; padding: 0 3px;">{{ article.category }}</span>
 							<h5><a href="{% url 'smgh:post_detail' slug=article.slug %}" class="article-title">{{ article.title }}</a></h5>
-							<span style="font-size: 15px;">Author: Esquire_gh</span>
+
+							{% if article.author is not None %}
+								<span style="font-size: 15px;">{{ article.author }}</span>
+							{% else %}
+								<span style="font-size: 15px;">Author: Esquire_gh</span>
+							{% endif %}
 						</div>
 					</div>	
 					{% endfor %}
@@ -51,11 +56,11 @@
 				
 				<div class="row" style="padding: 0 2%">
 					<div class="col-md-offset-3  col-md-6">
-						<form method="POST" action="/">
+						<form method="POST">
 							{% csrf_token %}
 							<div class="form-group">
-								<input id="newsletter-form-text" type="text" name="subscribe" class="form-control" placeholder="Enter your E-mail">
-								<p class="text-center"><input type="submit" name="submit" class="btn btn-subscribe"></p>
+								{{ subscriber_form }}
+								<p class="text-center" style="padding: 0 5px;"><input type="submit" name="submit" class="btn btn-subscribe" value="Subscribe"></p>
 							</div>
 						</form>
 					</div>
@@ -70,7 +75,7 @@
 								<div id="quicklinks">
 									<a href="{% url 'smgh:index' %}">Home</a>
 									<a href="">Articles</a>
-									<a href="">Discussions</a>
+									<a href="">Trending</a>
 									<a href="{% url 'smgh:about' %}">About</a>
 								</div>
 							</div>

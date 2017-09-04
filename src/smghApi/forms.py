@@ -1,5 +1,5 @@
 from django import forms
-from .models import Comment
+from .models import Comment, Subscriber
 
 class CommentForm(forms.ModelForm):
 	message = forms.CharField( widget = forms.Textarea(attrs={'class': 'form-control comment-form-input', 
@@ -21,3 +21,12 @@ class ContactForm(forms.Form):
 		'class': 'form-control contact_form_element text_area_input', 'placeholder':'Enter your Message', 'required':'true'
 		}), 
 		required =True, label='')
+
+
+class SubscriberForm(forms.ModelForm):
+	email = forms.EmailField(max_length = 225, required =True, label = '',
+		widget = forms.EmailInput(attrs={'class': 'form-control contact_form_element', 'placeholder':'Sender', 'required':'true'}))
+
+	class Meta:
+		model = Subscriber
+		fields = ('email',)

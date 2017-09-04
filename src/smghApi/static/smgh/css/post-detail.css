@@ -1,3 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 span{
 	font-size: 14px;
+}
+
+.article-content{
+	color: #222;
+	margin-top: 25px;
+    line-height: 1.68;
+    letter-spacing: 0.8px;
+    font-family: "Roboto" san-serif;
+}
+
+
+h3{
+	color: #222;
+}
+
+#like-share-buttons{
+	margin-bottom: 10px;
 }

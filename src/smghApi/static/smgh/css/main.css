@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 html, body{
 	margin: 0;
 	padding: 0;
@@ -6,17 +7,21 @@ html, body{
 }
 
 #nav-inner{
-	border-bottom: 1px solid rgb(232, 49, 49);
-	box-shadow: -1px 1px 0px 1px rgb(232, 49, 49);
+	border-bottom: 1px solid #E83131;
+	box-shadow: -1px 1px 0px 1px #E83131;
 	padding-bottom: 10px;
 	padding-left: 10%;
 	padding-right: 10%;
-	background-color: #eeeeee;
+	background-color: #fff;
 	padding-top: 10px;
 }
 
+.navbar-item:hover{
+	color: #E83131;
+}
+
 .fa-search{
-	color: rgb(232, 49, 49);
+	color: #E83131;
 }
 
 
@@ -45,7 +50,7 @@ html, body{
 }
 
 .dropdown-content li:hover{
-	background-color: rgb(232, 49, 49);
+	background-color: #E83131;
 }
 
 .dropdown-content li a{
@@ -114,7 +119,7 @@ html, body{
 }
 
 #footer{
-	background-color: rgb(232, 49, 49);
+	background-color: #E83131;
 	color: black;
 	padding-top: 15px;
 	margin-top: 15px;
@@ -126,9 +131,13 @@ html, body{
 
 
 .btn-subscribe{
-	background-color: #333;
+	background-color: black;
+	color: white;
 	height: 40px;
-	margin-top: 5px;
+	margin-top: 15px;
+	width: 200px;
+	border: 1px solid black;
+	transition: .3s linear;
 }
 
 .footer-ul{
@@ -161,7 +170,7 @@ html, body{
 }
 
 .btn-submit{
-	border: .5px solid rgb(232, 49, 49);
+	border: .5px solid #E83131;
 	border-radius: 30px;
 	margin-top: 15px;
 	color: black;
@@ -170,7 +179,7 @@ html, body{
 }
 
 .btn-submit:hover{
-	background-color: rgb(232, 49, 49);
+	background-color: #E83131;
 	color: white;
 }
 
@@ -183,11 +192,11 @@ html, body{
 
 
 #like-share-buttons{
-	margin-top: 30px;
+	margin-top: 50px;
 }
 
 .fa-detail{
-	color: rgb(232, 49, 49);
+	color: #E83131;
 	border: 1px solid black;
 	border-radius: 50px;
 	padding: 5px;
@@ -196,7 +205,7 @@ html, body{
 
 .fa-heart{
 	padding: 7px 7px;
-	color: rgb(232, 49, 49);
+	color: #E83131;
 }
 
 .fa-fb{
@@ -210,4 +219,5 @@ html, body{
 
 .fa-ld{
 	padding: 7px 10px;
+	color:blue;
 }
